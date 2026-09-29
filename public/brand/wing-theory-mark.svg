@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-labelledby="title">
+  <title id="title">Wing Theory mark</title>
+  <rect x="1" y="1" width="70" height="70" rx="15" fill="#0b0c0f" stroke="#2a2d35" stroke-width="2"/>
+  <path d="M11 11h12l6 30 7-21 7 21 6-30h12L50 61H39l-3-13-4 13H21L11 11Z" fill="#c6ff3d"/>
+</svg>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#1A1C21;-webkit-font-smoothing:antialiased}
+a{color:#C6FF3D;text-decoration:none}a:hover{color:#E3FF8A}
+button{font:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid #C6FF3D;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@keyframes wtToast{0%{transform:translateY(20px) scale(.96);opacity:0}15%{transform:none;opacity:1}85%{opacity:1}100%{opacity:0}}
+@keyframes wtPulse{0%,100%{box-shadow:0 0 0 0 rgba(198,255,61,.5)}50%{box-shadow:0 0 0 10px rgba(198,255,61,0)}}
+</style>
+</helmet>
+
+<section data-screen-label="Intro" style="padding:64px 64px 0;font-family:'Archivo',sans-serif;color:#F2F2EE;display:flex;flex-direction:column;gap:14px;max-width:1300px">
+<div style="font:700 13px/1 'JetBrains Mono',monospace;letter-spacing:.14em;color:#C6FF3D">WING THEORY · CONCEPT B — ELECTRIC URBAN · ROUND 2</div>
+<div style="font:400 88px/.95 'Anton',sans-serif;text-transform:uppercase">The full system, delivery-only.</div>
+<div style="font-size:18px;line-height:1.55;color:#B4B7BF;max-width:900px;text-wrap:pretty">Wing Theory is a virtual brand, so every location selector, store page and multi-store view is gone. The customer enters a delivery address and gets one kitchen ETA. You can click: menu categories and filters, quick-add, heat and quantity, tip, the tracking stages, the kitchen capacity setting, live order actions and the 86 toggle. Items marked sold out in Menu Management show as sold out on the customer menu, and kitchen capacity changes every customer ETA.</div>
+</section>
+
+<section data-screen-label="Customer desktop" style="padding:64px;display:flex;flex-direction:column;gap:28px;font-family:'Archivo',sans-serif;color:#F2F2EE">
+<div style="font:700 13px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9A9DA6">01 — CUSTOMER · DESKTOP</div>
+<div style="display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start">
+
+<!-- HOME -->
+<div data-screen-label="Home" style="flex:none;width:1280px;background:#0B0C0F;border-radius:16px;overflow:hidden">
+<div style="position:relative;height:780px">
+<div style="position:absolute;inset:0"><image-slot id="u-hero" shape="rect" style="position:absolute;inset:0" placeholder="Hero: Korean Fire wings on black, rim light, steam rising"></image-slot></div>
+<div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,12,15,.96) 0%,rgba(11,12,15,.75) 48%,rgba(11,12,15,.05) 100%);pointer-events:none"></div>
+<div style="position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:24px 48px">
+<div style="font:400 28px/1 'Anton',sans-serif;letter-spacing:.02em">WING THEORY<span style="color:#C6FF3D">.</span></div>
+<nav style="display:flex;gap:28px;font-size:14px;font-weight:700;letter-spacing:.04em"><span>MENU</span><span>FLAVORS</span><span>DROPS</span><span>THEORY CLUB</span><span>CATERING</span></nav>
+<div style="display:flex;gap:10px;align-items:center"><span style="font-size:14px;font-weight:700">Sign in</span><button style="background:#C6FF3D;color:#0B0C0F;border:0;padding:12px 20px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.06em">CART · {{ cartCount }}</button></div>
+</div>
+<div style="position:absolute;left:48px;bottom:72px;width:780px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:10px;align-items:center;font:700 12px 'JetBrains Mono',monospace;letter-spacing:.1em"><span style="width:8px;height:8px;border-radius:50%;background:#C6FF3D"></span>DROP 12 LIVE · MANGO HABANERO × TAJÍN</div>
+<h1 style="margin:0;font:400 112px/.9 'Anton',sans-serif;text-transform:uppercase">Wings, engineered to <span style="color:#C6FF3D">obsession.</span></h1>
+<p style="margin:0;font-size:20px;color:#C7CAD1">Crispy wings. Original sauces. Zero boring bites.</p>
+<div style="display:flex;gap:12px"><button style="background:#C6FF3D;color:#0B0C0F;border:0;padding:20px 30px;border-radius:999px;font-weight:800;letter-spacing:.06em;font-size:14px">ORDER YOUR THEORY</button><button style="background:rgba(255,255,255,.06);color:#F2F2EE;border:1px solid #5A5E69;padding:20px 30px;border-radius:999px;font-weight:700;letter-spacing:.06em;font-size:14px">EXPLORE THE MENU</button></div>
+</div>
+<div style="position:absolute;right:48px;bottom:72px;width:340px;background:rgba(22,24,29,.9);backdrop-filter:blur(16px);border:1px solid #2A2D35;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:14px">
+<label style="display:flex;flex-direction:column;gap:6px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">DELIVER TO</span><span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;color:#9A9DA6">Enter your address</span></label>
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">KITCHEN · {{ capName }}</span><span style="font:700 18px 'JetBrains Mono',monospace;color:#C6FF3D">{{ eta }}</span></div>
+<div style="border-top:1px solid #2A2D35;padding-top:12px;font-size:12px;color:#9A9DA6">Also on DoorDash · Uber Eats · Grubhub. Order direct to earn Theory Club points.</div>
+</div>
+</div>
+<div style="padding:72px 48px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;justify-content:space-between;align-items:end"><h2 style="margin:0;font:400 72px/1 'Anton',sans-serif">FLAVOR THEORY</h2><a href="#" style="font:700 12px 'JetBrains Mono',monospace">ALL 12 THEORIES →</a></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6"><span>NO.01</span><span>HEAT 2</span></div><div style="font:400 36px/1 'Anton',sans-serif">CLASSIC BUFFALO</div><div style="height:6px;border-radius:3px;background:#2A2D35"><div style="width:40%;height:100%;border-radius:3px;background:linear-gradient(90deg,#C6FF3D,#FF6A1F)"></div></div><div style="font:600 11px 'JetBrains Mono',monospace;color:#9A9DA6">SWEET ▪▫▫▫▫ · SAVORY ▪▪▪▪▫</div><div style="font-size:13px;color:#B4B7BF">Cayenne · butter · vinegar</div></div>
+<div style="background:#16181D;border:1px solid #FF3D8B;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 0 40px rgba(255,61,139,.18)"><div style="display:flex;justify-content:space-between;font:700 12px 'JetBrains Mono',monospace;color:#FF3D8B"><span>NO.04</span><span>HEAT 5</span></div><div style="font:400 36px/1 'Anton',sans-serif">NASHVILLE INFERNO</div><div style="height:6px;border-radius:3px;background:#2A2D35"><div style="width:100%;height:100%;border-radius:3px;background:linear-gradient(90deg,#C6FF3D,#FF6A1F,#FF3D8B)"></div></div><div style="font:600 11px 'JetBrains Mono',monospace;color:#9A9DA6">SWEET ▪▪▫▫▫ · SAVORY ▪▪▪▪▪</div><div style="font-size:13px;color:#B4B7BF">Ghost pepper · brown sugar · pickle</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6"><span>NO.07</span><span>HEAT 3</span></div><div style="font:400 36px/1 'Anton',sans-serif">HOT HONEY THEORY</div><div style="height:6px;border-radius:3px;background:#2A2D35"><div style="width:60%;height:100%;border-radius:3px;background:linear-gradient(90deg,#C6FF3D,#FF6A1F)"></div></div><div style="font:600 11px 'JetBrains Mono',monospace;color:#9A9DA6">SWEET ▪▪▪▪▪ · SAVORY ▪▪▫▫▫</div><div style="font-size:13px;color:#B4B7BF">Honey · chili flake · lemon</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="display:flex;justify-content:space-between;font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6"><span>NO.09</span><span>HEAT 4</span></div><div style="font:400 36px/1 'Anton',sans-serif">KOREAN FIRE</div><div style="height:6px;border-radius:3px;background:#2A2D35"><div style="width:80%;height:100%;border-radius:3px;background:linear-gradient(90deg,#C6FF3D,#FF6A1F,#FF3D8B)"></div></div><div style="font:600 11px 'JetBrains Mono',monospace;color:#9A9DA6">SWEET ▪▪▪▫▫ · SAVORY ▪▪▪▪▫</div><div style="font-size:13px;color:#B4B7BF">Gochujang · sesame · scallion</div></div>
+</div>
+</div>
+<div style="padding:0 48px 72px;display:flex;flex-direction:column;gap:28px">
+<h2 style="margin:0;font:400 72px/1 'Anton',sans-serif">BEST SELLERS</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<div style="background:#16181D;border-radius:20px;overflow:hidden;border:1px solid #2A2D35"><div style="height:300px;position:relative"><image-slot id="u-best1" shape="rect" style="position:absolute;inset:0" placeholder="Hot Honey Wings"></image-slot></div><div style="padding:18px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:400 26px 'Anton',sans-serif">HOT HONEY WINGS</div><div style="font:600 12px 'JetBrains Mono',monospace;color:#9A9DA6">HEAT 3 · FROM $13.49</div></div><button onClick="{{ addToCart }}" style="background:#C6FF3D;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;font-weight:800" aria-label="Add Hot Honey Wings">+</button></div></div>
+<div style="background:#16181D;border-radius:20px;overflow:hidden;border:1px solid #2A2D35;transform:translateY(-24px)"><div style="height:300px;position:relative"><image-slot id="u-best2" shape="rect" style="position:absolute;inset:0" placeholder="Korean Fire Wings"></image-slot></div><div style="padding:18px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:400 26px 'Anton',sans-serif">KOREAN FIRE WINGS</div><div style="font:600 12px 'JetBrains Mono',monospace;color:#9A9DA6">HEAT 4 · FROM $13.99</div></div><button onClick="{{ addToCart }}" style="background:#C6FF3D;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;font-weight:800" aria-label="Add Korean Fire Wings">+</button></div></div>
+<div style="background:#16181D;border-radius:20px;overflow:hidden;border:1px solid #2A2D35"><div style="height:300px;position:relative"><image-slot id="u-best3" shape="rect" style="position:absolute;inset:0" placeholder="Loaded Theory Fries"></image-slot></div><div style="padding:18px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:400 26px 'Anton',sans-serif">LOADED THEORY FRIES</div><div style="font:600 12px 'JetBrains Mono',monospace;color:#9A9DA6">HEAT 2 · $8.49</div></div><button onClick="{{ addToCart }}" style="background:#C6FF3D;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;font-weight:800" aria-label="Add Loaded Theory Fries">+</button></div></div>
+</div>
+</div>
+<div style="margin:0 48px 72px;border:1px solid #2A2D35;border-radius:24px;padding:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:16px"><h2 style="margin:0;font:400 60px/1 'Anton',sans-serif">BUILD YOUR THEORY</h2><button style="align-self:flex-start;background:#C6FF3D;color:#0B0C0F;border:0;padding:16px 26px;border-radius:999px;font-weight:800;font-size:13px;letter-spacing:.06em">BUILD YOUR ORDER</button></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font-weight:700">
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center"><span style="font:700 14px 'JetBrains Mono',monospace;color:#C6FF3D">01</span>Choose your chicken</div>
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center"><span style="font:700 14px 'JetBrains Mono',monospace;color:#C6FF3D">02</span>Choose your quantity</div>
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center"><span style="font:700 14px 'JetBrains Mono',monospace;color:#C6FF3D">03</span>Choose your sauce</div>
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center"><span style="font:700 14px 'JetBrains Mono',monospace;color:#FF6A1F">04</span>Choose your heat</div>
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center"><span style="font:700 14px 'JetBrains Mono',monospace;color:#C6FF3D">05</span>Add dips</div>
+<div style="background:#16181D;border-radius:14px;padding:16px;display:flex;gap:12px;align-items:center;border:1px solid #C6FF3D"><span style="font:700 14px 'JetBrains Mono',monospace;color:#C6FF3D">06</span>Complete the theory</div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:16px;padding:0 48px 48px">
+<div style="border-radius:24px;overflow:hidden;position:relative;min-height:340px;border:1px solid #FF3D8B"><image-slot id="u-exp" shape="rect" style="position:absolute;inset:0" placeholder="Experiment 12 visual"></image-slot><div style="position:absolute;left:24px;bottom:24px;pointer-events:none"><div style="font:700 12px 'JetBrains Mono',monospace;color:#FF3D8B">EXPERIMENT 12 · AVAILABLE FOR A LIMITED TIME</div><div style="font:400 48px/1 'Anton',sans-serif">MANGO HABANERO × TAJÍN</div></div></div>
+<div style="background:#16181D;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">THEORY CLUB</div><div style="font:400 32px/1.05 'Anton',sans-serif">EAT WINGS. TEST THEORIES. EARN REWARDS.</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;font-size:14px;color:#B4B7BF"><span>10 pts per $1 on direct orders</span><span>Free 6-piece on your birthday</span><span>Early access to every drop</span><span>Give $10, get $10 referrals</span></div></div>
+<div style="background:#16181D;border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">CATERING</div><div style="font:400 32px/1.05 'Anton',sans-serif">FEEDS 10 TO 200.</div><div style="font-size:14px;color:#B4B7BF;line-height:1.5">Office lunches, game nights and parties. Trays by the 50, sauces on the side, 24 hours' notice.</div><button style="margin-top:auto;align-self:flex-start;background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:999px;padding:12px 18px;font-weight:700">Plan an order</button></div>
+</div>
+<div style="padding:0 48px 48px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;justify-content:space-between;align-items:end"><h2 style="margin:0;font:400 44px/1 'Anton',sans-serif">#TESTYOURTHEORY</h2><span style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">@WINGTHEORY</span></div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px">
+<div style="height:280px;border-radius:16px;overflow:hidden;position:relative"><image-slot id="u-soc1" shape="rect" style="position:absolute;inset:0" placeholder="UGC reel"></image-slot></div>
+<div style="height:280px;border-radius:16px;overflow:hidden;position:relative"><image-slot id="u-soc2" shape="rect" style="position:absolute;inset:0" placeholder="UGC reel"></image-slot></div>
+<div style="height:280px;border-radius:16px;overflow:hidden;position:relative"><image-slot id="u-soc3" shape="rect" style="position:absolute;inset:0" placeholder="UGC reel"></image-slot></div>
+<div style="height:280px;border-radius:16px;overflow:hidden;position:relative"><image-slot id="u-soc4" shape="rect" style="position:absolute;inset:0" placeholder="UGC reel"></image-slot></div>
+<div style="height:280px;border-radius:16px;overflow:hidden;position:relative"><image-slot id="u-soc5" shape="rect" style="position:absolute;inset:0" placeholder="UGC reel"></image-slot></div>
+</div>
+</div>
+<footer style="border-top:1px solid #2A2D35;padding:40px 48px;display:grid;grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,1fr));gap:24px;font-size:14px;color:#9A9DA6">
+<div style="display:flex;flex-direction:column;gap:10px"><div style="font:400 28px 'Anton',sans-serif;color:#F2F2EE">WING THEORY<span style="color:#C6FF3D">.</span></div><span>Delivery-only wings, engineered to obsession.</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><b style="color:#F2F2EE">Menu</b><span>Wings</span><span>Chicken sandwiches</span><span>Sides</span><span>Flavors</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><b style="color:#F2F2EE">Brand</b><span>About</span><span>Theory Club</span><span>Catering</span><span>Blog</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><b style="color:#F2F2EE">Help</b><span>FAQ</span><span>Allergens &amp; nutrition</span><span>Accessibility</span><span>Privacy · Terms</span></div>
+</footer>
+</div>
+
+<!-- MENU -->
+<div data-screen-label="Menu" style="flex:none;width:1280px;background:#0B0C0F;border-radius:16px;overflow:hidden">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:24px 48px;border-bottom:1px solid #2A2D35">
+<div style="font:400 28px/1 'Anton',sans-serif">WING THEORY<span style="color:#C6FF3D">.</span></div>
+<div style="flex:1;max-width:420px;margin:0 32px;background:#16181D;border:1px solid #2A2D35;border-radius:999px;padding:12px 18px;color:#9A9DA6;font-size:14px">Search wings, sauces, sides…</div>
+<div style="display:flex;gap:14px;align-items:center"><span style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">● {{ etaShort }}</span><button style="background:#C6FF3D;color:#0B0C0F;border:0;padding:12px 20px;border-radius:999px;font-weight:800;font-size:13px">CART · {{ cartCount }}</button></div>
+</div>
+<div style="display:grid;grid-template-columns:240px minmax(0,1fr)">
+<nav aria-label="Menu categories" style="border-right:1px solid #2A2D35;padding:28px 16px;display:flex;flex-direction:column;gap:4px">
+<sc-for list="{{ cats }}" as="c" hint-placeholder-count="12"><button onClick="{{ c.pick }}" style="text-align:left;border:0;border-radius:12px;padding:11px 14px;font-weight:700;font-size:14px;background:{{ c.bg }};color:{{ c.fg }}">{{ c.name }}</button></sc-for>
+<div style="margin-top:16px;border-top:1px solid #2A2D35;padding-top:16px;font-size:13px;color:#9A9DA6;display:flex;flex-direction:column;gap:8px"><a href="#">Allergen information</a><a href="#">Catering menu</a></div>
+</nav>
+<div style="padding:28px 36px 48px;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;justify-content:space-between;align-items:end"><h1 style="margin:0;font:400 64px/1 'Anton',sans-serif;text-transform:uppercase">{{ catName }}</h1><span style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">{{ itemCount }} ITEMS</span></div>
+<div role="group" aria-label="Filters" style="display:flex;gap:8px;flex-wrap:wrap"><sc-for list="{{ filterChips }}" as="f" hint-placeholder-count="8"><button onClick="{{ f.pick }}" aria-pressed="{{ f.on }}" style="border-radius:999px;padding:0 16px;height:40px;font-weight:700;font-size:13px;background:{{ f.bg }};color:{{ f.fg }};border:1px solid {{ f.bd }}">{{ f.label }}</button></sc-for></div>
+<sc-if value="{{ menuEmpty }}" hint-placeholder-val="{{ false }}"><div style="border:1px dashed #2A2D35;border-radius:20px;padding:48px;text-align:center;color:#9A9DA6">No items match these filters. Clear a filter to see more.</div></sc-if>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+<sc-for list="{{ menuItems }}" as="it" hint-placeholder-count="6">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;opacity:{{ it.op }}">
+<div style="height:200px;position:relative"><image-slot id="{{ it.slot }}" shape="rect" style="position:absolute;inset:0" placeholder="{{ it.name }}"></image-slot>
+<div style="position:absolute;top:12px;left:12px;display:flex;gap:6px;pointer-events:none"><span style="background:{{ it.heatBg }};color:#0B0C0F;font:700 11px 'JetBrains Mono',monospace;padding:5px 9px;border-radius:999px">HEAT {{ it.heat }}</span><sc-for list="{{ it.badges }}" as="b"><span style="background:#0B0C0F;color:#F2F2EE;border:1px solid #5A5E69;font:700 11px 'JetBrains Mono',monospace;padding:4px 9px;border-radius:999px">{{ b }}</span></sc-for></div></div>
+<div style="padding:16px;display:flex;flex-direction:column;gap:6px;flex:1"><div style="font:600 11px 'JetBrains Mono',monospace;color:#9A9DA6">{{ it.no }}</div><div style="font:400 24px/1.05 'Anton',sans-serif;text-transform:uppercase">{{ it.name }}</div><div style="font-size:14px;color:#B4B7BF;line-height:1.45">{{ it.desc }}</div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px"><span style="font:700 16px 'JetBrains Mono',monospace">{{ it.priceTxt }}</span><button onClick="{{ it.add }}" disabled="{{ it.sold }}" style="background:{{ it.btnBg }};color:#0B0C0F;border:0;height:44px;padding:0 18px;border-radius:999px;font-weight:800;font-size:13px">{{ it.addLabel }}</button></div></div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CHECKOUT -->
+<div data-screen-label="Checkout" style="flex:none;width:1280px;background:#0B0C0F;border-radius:16px;overflow:hidden">
+<div style="display:flex;align-items:center;justify-content:space-between;padding:24px 48px;border-bottom:1px solid #2A2D35"><div style="font:400 28px/1 'Anton',sans-serif">WING THEORY<span style="color:#C6FF3D">.</span></div><span style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">SECURE CHECKOUT</span></div>
+<div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;padding:36px 48px 48px">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;justify-content:space-between;align-items:center;background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:18px 22px"><div><b>Checking out as guest</b><div style="font-size:14px;color:#9A9DA6">Sign in to earn 395 points on this order.</div></div><button style="background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:999px;height:44px;padding:0 18px;font-weight:700">Sign in</button></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">01 · DELIVERY</div>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700">Delivery address<span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;font-weight:500">1400 E Pine St, Apt 5</span></label>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700">Drop-off instructions<span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;font-weight:500;color:#9A9DA6">e.g. Leave at door, buzz 5</span></label>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><sc-for list="{{ scheds }}" as="s" hint-placeholder-count="2"><button onClick="{{ s.pick }}" style="text-align:left;border-radius:14px;padding:14px;background:{{ s.bg }};border:1px solid {{ s.bd }};color:#F2F2EE"><b style="display:block">{{ s.name }}</b><span style="font-size:13px;color:#9A9DA6">{{ s.sub }}</span></button></sc-for></div>
+</div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">02 · CONTACT</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700">Name<span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;font-weight:500">Jordan Kim</span></label><label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700">Mobile (for order texts)<span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;font-weight:500">(206) 555-0142</span></label></div>
+<label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700">Email<span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;font-size:15px;font-weight:500">jordan@email.com</span></label></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px"><div style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">03 · PAYMENT</div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px"><sc-for list="{{ pays }}" as="p" hint-placeholder-count="5"><button onClick="{{ p.pick }}" style="height:56px;border-radius:14px;font-weight:700;font-size:13px;background:{{ p.bg }};border:1px solid {{ p.bd }};color:#F2F2EE">{{ p.name }}</button></sc-for></div>
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px"><span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;color:#9A9DA6">Card number</span><span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;color:#9A9DA6">MM / YY</span><span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:14px;color:#9A9DA6">CVC</span></div>
+<span style="font-size:12px;color:#9A9DA6">Payments processed by a PCI-compliant provider. Wing Theory never stores card numbers.</span></div>
+</div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:16px;align-self:start">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:400 32px 'Anton',sans-serif">YOUR ORDER</div><span style="font:700 12px 'JetBrains Mono',monospace;color:#C6FF3D">{{ eta }}</span></div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center"><div style="height:64px;border-radius:12px;overflow:hidden;position:relative"><image-slot id="u-co1" shape="rect" style="position:absolute;inset:0" placeholder="KF"></image-slot></div><div><b>Korean Fire · 10 bone-in</b><div style="font-size:13px;color:#9A9DA6">Heat 4 · Extra crispy · Ranch</div></div><div style="display:flex;align-items:center;gap:6px"><span style="width:32px;height:32px;border-radius:50%;border:1px solid #5A5E69;display:flex;align-items:center;justify-content:center">−</span><b style="font-family:'JetBrains Mono',monospace">1</b><span style="width:32px;height:32px;border-radius:50%;border:1px solid #5A5E69;display:flex;align-items:center;justify-content:center">+</span></div></div>
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center"><div style="height:64px;border-radius:12px;overflow:hidden;position:relative"><image-slot id="u-co2" shape="rect" style="position:absolute;inset:0" placeholder="LF"></image-slot></div><div><b>Loaded Theory Fries</b><div style="font-size:13px;color:#9A9DA6">Edit · Remove</div></div><b style="font-family:'JetBrains Mono',monospace">$8.49</b></div>
+<div style="border-top:1px solid #2A2D35;padding-top:14px;display:flex;flex-direction:column;gap:8px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">COMPLETE THE THEORY</span><div style="display:flex;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:700"><span style="border:1px dashed #5A5E69;border-radius:999px;padding:9px 14px">+ Mac &amp; cheese $4.99</span><span style="border:1px dashed #5A5E69;border-radius:999px;padding:9px 14px">+ Spicy ranch $0.99</span><span style="border:1px dashed #5A5E69;border-radius:999px;padding:9px 14px">+ Yuzu soda $3.49</span></div></div>
+<div style="display:grid;grid-template-columns:1fr auto;gap:8px"><span style="background:#0B0C0F;border:1px solid #2A2D35;border-radius:14px;padding:12px 14px;color:#9A9DA6;font-size:14px">Promo code</span><button style="background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:14px;padding:0 16px;font-weight:700">Apply</button></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">TIP YOUR DRIVER</span><div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px"><sc-for list="{{ tips }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:44px;border-radius:12px;font-weight:700;background:{{ t.bg }};color:{{ t.fg }};border:1px solid #2A2D35">{{ t.name }}</button></sc-for></div></div>
+<div style="border-top:1px solid #2A2D35;padding-top:14px;display:flex;flex-direction:column;gap:6px;font-size:14px;color:#B4B7BF">
+<div style="display:flex;justify-content:space-between"><span>Subtotal</span><span style="font-family:'JetBrains Mono',monospace">{{ t_sub }}</span></div>
+<div style="display:flex;justify-content:space-between"><span>Delivery fee</span><span style="font-family:'JetBrains Mono',monospace">{{ t_del }}</span></div>
+<div style="display:flex;justify-content:space-between"><span>Tax</span><span style="font-family:'JetBrains Mono',monospace">{{ t_tax }}</span></div>
+<div style="display:flex;justify-content:space-between"><span>Tip</span><span style="font-family:'JetBrains Mono',monospace">{{ t_tip }}</span></div>
+<div style="display:flex;justify-content:space-between;color:#C6FF3D"><span>Theory Club reward</span><span style="font-family:'JetBrains Mono',monospace">−$5.00</span></div>
+<div style="display:flex;justify-content:space-between;color:#F2F2EE;font-size:20px;font-weight:800;padding-top:6px"><span>Total</span><span style="font-family:'JetBrains Mono',monospace">{{ t_total }}</span></div></div>
+<button style="background:#C6FF3D;color:#0B0C0F;border:0;height:60px;border-radius:999px;font-weight:800;letter-spacing:.06em;font-size:16px">PLACE ORDER · {{ t_total }}</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section data-screen-label="Customer mobile" style="padding:0 64px 64px;display:flex;flex-direction:column;gap:28px;font-family:'Archivo',sans-serif;color:#F2F2EE">
+<div style="font:700 13px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9A9DA6">02 — CUSTOMER · MOBILE · HOME | MENU | ORDER | REWARDS | ACCOUNT</div>
+<div style="display:flex;gap:40px;flex-wrap:wrap;max-width:1400px">
+
+<!-- M HOME -->
+<div data-screen-label="M Home" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="height:470px;position:relative;flex:none"><image-slot id="mh-hero" shape="rect" style="position:absolute;inset:0" placeholder="Hero wings, vertical crop"></image-slot><div style="position:absolute;inset:0;background:linear-gradient(0deg,#0B0C0F 8%,rgba(11,12,15,.2) 60%,rgba(11,12,15,.7) 100%);pointer-events:none"></div>
+<div style="position:absolute;top:16px;left:24px;right:24px;display:flex;justify-content:space-between;font-weight:700;font-size:14px;pointer-events:none"><span>9:41</span><span>●●●</span></div>
+<div style="position:absolute;top:52px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;pointer-events:none"><span style="font:400 22px 'Anton',sans-serif">WING THEORY<span style="color:#C6FF3D">.</span></span><span style="font:700 11px 'JetBrains Mono',monospace;background:rgba(11,12,15,.7);border:1px solid #2A2D35;border-radius:999px;padding:7px 10px;color:#C6FF3D">● {{ etaShort }}</span></div>
+<div style="position:absolute;left:20px;right:20px;bottom:16px;display:flex;flex-direction:column;gap:10px;pointer-events:none"><span style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">DROP 12 LIVE</span><div style="font:400 60px/.9 'Anton',sans-serif">WINGS, ENGINEERED TO <span style="color:#C6FF3D">OBSESSION.</span></div></div></div>
+<div style="padding:16px 20px;display:flex;flex-direction:column;gap:10px"><div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px;display:flex;justify-content:space-between;font-size:15px"><span style="color:#9A9DA6">Deliver to…</span><span style="font-weight:700">Enter address</span></div>
+<div style="display:flex;gap:8px;overflow-x:auto"><span style="flex:none;background:#16181D;border:1px solid #FF3D8B;border-radius:16px;padding:12px;width:150px"><span style="font:700 10px 'JetBrains Mono',monospace;color:#FF3D8B">NO.04 · HEAT 5</span><br><b>Nashville Inferno</b></span><span style="flex:none;background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:12px;width:150px"><span style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">NO.07 · HEAT 3</span><br><b>Hot Honey</b></span><span style="flex:none;background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:12px;width:150px"><span style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">NO.09</span><br><b>Korean Fire</b></span></div></div>
+<div style="margin:auto 16px 10px;"><button style="width:100%;background:#C6FF3D;color:#0B0C0F;border:0;height:58px;border-radius:999px;font-weight:800;letter-spacing:.06em;font-size:15px">ORDER YOUR THEORY</button></div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #2A2D35;padding:10px 0 22px;font-size:10px;font-weight:700;text-align:center;letter-spacing:.04em;color:#9A9DA6"><span style="color:#C6FF3D">HOME</span><span>MENU</span><span>ORDER</span><span>REWARDS</span><span>ACCOUNT</span></div>
+</div>
+
+<!-- M MENU -->
+<div data-screen-label="M Menu" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="padding:16px 24px 0;display:flex;justify-content:space-between;font-weight:700;font-size:14px"><span>9:41</span><span>●●●</span></div>
+<div style="padding:18px 20px 12px;display:flex;justify-content:space-between;align-items:end"><div style="font:400 44px/1 'Anton',sans-serif">MENU</div><span style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">● {{ etaShort }}</span></div>
+<div style="display:flex;gap:8px;padding:0 20px 14px;overflow-x:auto;flex:none"><sc-for list="{{ mcats }}" as="c" hint-placeholder-count="5"><button onClick="{{ c.pick }}" style="flex:none;border:1px solid #2A2D35;border-radius:999px;padding:0 16px;height:44px;font-weight:700;font-size:13px;background:{{ c.bg }};color:{{ c.fg }}">{{ c.name }}</button></sc-for></div>
+<div style="flex:1;overflow:hidden;padding:0 20px;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ mobileItems }}" as="it" hint-placeholder-count="4">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:12px;display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:12px;align-items:center;opacity:{{ it.op }}"><div style="height:84px;border-radius:12px;overflow:hidden;position:relative"><image-slot id="{{ it.slot }}-m" shape="rect" style="position:absolute;inset:0" placeholder="{{ it.name }}"></image-slot></div><div><div style="font:400 19px/1.05 'Anton',sans-serif;text-transform:uppercase">{{ it.name }}</div><div style="font-size:13px;color:#B4B7BF;margin-top:4px">{{ it.priceTxt }} · <span style="color:{{ it.heatBg }}">Heat {{ it.heat }}</span></div></div><button onClick="{{ it.add }}" disabled="{{ it.sold }}" aria-label="Quick add {{ it.name }}" style="background:{{ it.btnBg }};border:0;width:44px;height:44px;border-radius:50%;font-size:20px;font-weight:800;color:#0B0C0F">+</button></div>
+</sc-for>
+</div>
+{{ toastEl }}
+<div style="margin:12px 16px;background:#C6FF3D;color:#0B0C0F;border-radius:999px;padding:16px 22px;display:flex;justify-content:space-between;font-weight:800;font-size:15px"><span>CART · {{ cartCount }}</span><span>VIEW →</span></div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #2A2D35;padding:10px 0 22px;font-size:10px;font-weight:700;text-align:center;letter-spacing:.04em;color:#9A9DA6"><span>HOME</span><span style="color:#C6FF3D">MENU</span><span>ORDER</span><span>REWARDS</span><span>ACCOUNT</span></div>
+</div>
+
+<!-- M CUSTOMIZE -->
+<div data-screen-label="M Customize" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="height:200px;position:relative;flex:none"><image-slot id="mc-hero" shape="rect" style="position:absolute;inset:0" placeholder="Korean Fire, dark bg"></image-slot><div style="position:absolute;inset:auto 0 0 0;height:80px;background:linear-gradient(0deg,#0B0C0F,transparent);pointer-events:none"></div><span style="position:absolute;top:48px;left:16px;width:44px;height:44px;border-radius:50%;background:rgba(11,12,15,.8);display:flex;align-items:center;justify-content:center;pointer-events:none">←</span></div>
+<div style="padding:0 20px 12px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:hidden">
+<div><div style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">THEORY NO.09</div><div style="font:400 36px/1 'Anton',sans-serif">KOREAN FIRE WINGS</div></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;font-size:13px;font-weight:700;text-align:center"><span style="border:1px solid #C6FF3D;border-radius:12px;padding:11px 0">Bone-In</span><span style="border:1px solid #2A2D35;border-radius:12px;padding:11px 0">Boneless</span><span style="border:1px solid #2A2D35;border-radius:12px;padding:11px 0">Tenders</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6"><span>QUANTITY</span><span>{{ sauceSlots }}</span></div><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px"><sc-for list="{{ qtys }}" as="q" hint-placeholder-count="6"><button onClick="{{ q.pick }}" style="height:44px;border-radius:12px;border:1px solid #2A2D35;font:700 15px 'JetBrains Mono',monospace;background:{{ q.bg }};color:{{ q.fg }}">{{ q.name }}</button></sc-for></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">HEAT</span><span style="font:400 24px 'Anton',sans-serif;color:{{ heatColor }}">{{ heatN }} · {{ heatLabel }}</span></div>
+<div style="height:10px;border-radius:5px;background:#2A2D35;overflow:hidden"><div style="height:100%;width:{{ heatPct }};background:linear-gradient(90deg,#C6FF3D,#FF6A1F,#FF3D8B);background-size:330px 100%;transition:width .25s"></div></div>
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:5px"><sc-for list="{{ heatPips }}" as="p" hint-placeholder-count="6"><button onClick="{{ p.pick }}" aria-label="{{ p.label }}" style="height:44px;border-radius:12px;border:1px solid #2A2D35;font:700 15px 'JetBrains Mono',monospace;background:{{ p.bg }};color:{{ p.fg }}">{{ p.n }}</button></sc-for></div>
+<span style="font-size:13px;color:#B4B7BF">{{ heatCopy }}</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><sc-for list="{{ crisps }}" as="c" hint-placeholder-count="2"><button onClick="{{ c.pick }}" style="height:44px;border-radius:12px;background:#16181D;color:#F2F2EE;font-weight:700;font-size:13px;border:1px solid {{ c.bd }}">{{ c.name }}</button></sc-for></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;font-size:13px;font-weight:700"><span style="border:1px solid #C6FF3D;color:#C6FF3D;border-radius:999px;padding:9px 13px">✓ Ranch</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:9px 13px">Blue Cheese</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:9px 13px">Garlic Aioli +$0.99</span></div>
+</div>
+<div style="padding:10px 16px 28px"><button onClick="{{ addToCart }}" style="width:100%;background:#C6FF3D;color:#0B0C0F;border:0;height:58px;border-radius:999px;font-weight:800;letter-spacing:.06em;font-size:15px">ADD TO ORDER · {{ itemPrice }}</button></div>
+</div>
+
+<!-- M CART -->
+<div data-screen-label="M Cart" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="padding:16px 24px 0;display:flex;justify-content:space-between;font-weight:700;font-size:14px"><span>9:41</span><span>●●●</span></div>
+<div style="padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:end"><div style="font:400 40px/1 'Anton',sans-serif">CHECKOUT</div><span style="font-size:13px;color:#9A9DA6">Guest · <a href="#">Sign in</a></span></div>
+<div style="flex:1;overflow:hidden;padding:0 20px;display:flex;flex-direction:column;gap:10px;font-size:14px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px;display:flex;justify-content:space-between"><div><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">DELIVER TO</div><b>1400 E Pine St, Apt 5</b></div><span style="color:#C6FF3D;font-weight:700">Edit</span></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px"><sc-for list="{{ scheds }}" as="s" hint-placeholder-count="2"><button onClick="{{ s.pick }}" style="text-align:left;border-radius:14px;padding:10px 12px;background:{{ s.bg }};border:1px solid {{ s.bd }};color:#F2F2EE;min-height:56px"><b style="display:block;font-size:14px">{{ s.name }}</b><span style="font-size:11px;color:#9A9DA6">{{ s.sub }}</span></button></sc-for></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between"><span><b>Korean Fire · 10</b><br><span style="color:#9A9DA6;font-size:13px">Heat 4 · Extra crispy · Ranch</span></span><b style="font-family:'JetBrains Mono',monospace">$16.99</b></div><div style="display:flex;justify-content:space-between;border-top:1px solid #2A2D35;padding-top:10px"><span><b>Loaded Theory Fries</b></span><b style="font-family:'JetBrains Mono',monospace">$8.49</b></div></div>
+<div style="display:flex;gap:6px;overflow:hidden;font-size:12px;font-weight:700"><span style="flex:none;border:1px dashed #5A5E69;border-radius:999px;padding:9px 12px">+ Mac &amp; cheese</span><span style="flex:none;border:1px dashed #5A5E69;border-radius:999px;padding:9px 12px">+ Spicy ranch</span><span style="flex:none;border:1px dashed #5A5E69;border-radius:999px;padding:9px 12px">+ Soda</span></div>
+<div style="display:flex;justify-content:space-between;align-items:center;background:rgba(198,255,61,.08);border:1px solid #C6FF3D;border-radius:16px;padding:12px 14px"><span><b>Use 500 pts</b> · −$5.00</span><span style="width:44px;height:26px;border-radius:13px;background:#C6FF3D;position:relative"><span style="position:absolute;right:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#0B0C0F"></span></span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">TIP</span><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px"><sc-for list="{{ tips }}" as="t" hint-placeholder-count="4"><button onClick="{{ t.pick }}" style="height:44px;border-radius:12px;font-weight:700;background:{{ t.bg }};color:{{ t.fg }};border:1px solid #2A2D35">{{ t.name }}</button></sc-for></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-weight:700;font-size:14px"><span style="height:48px;border-radius:14px;background:#F2F2EE;color:#0B0C0F;display:flex;align-items:center;justify-content:center">Apple Pay</span><span style="height:48px;border-radius:14px;border:1px solid #2A2D35;display:flex;align-items:center;justify-content:center">Card · Google Pay</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;color:#B4B7BF;font-size:13px"><div style="display:flex;justify-content:space-between"><span>Subtotal · delivery · tax · tip</span><span style="font-family:'JetBrains Mono',monospace">{{ t_sub }} + fees</span></div><div style="display:flex;justify-content:space-between"><span>Promo code</span><a href="#">Add</a></div></div>
+</div>
+<div style="padding:10px 16px 28px;border-top:1px solid #2A2D35"><button style="width:100%;background:#C6FF3D;color:#0B0C0F;border:0;height:58px;border-radius:999px;font-weight:800;letter-spacing:.06em;font-size:15px">PLACE ORDER · {{ t_total }}</button></div>
+</div>
+
+<!-- M TRACKING -->
+<div data-screen-label="M Tracking" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="padding:16px 24px 0;display:flex;justify-content:space-between;font-weight:700;font-size:14px"><span>9:41</span><span>●●●</span></div>
+<div style="padding:22px 20px 0;display:flex;flex-direction:column;gap:6px"><div style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">#WT-2048 · DELIVERY</div><div style="font:400 44px/.95 'Anton',sans-serif;min-height:84px">{{ stageCopy }}</div></div>
+<div style="padding:10px 20px;display:flex;justify-content:space-between;align-items:baseline"><sc-if value="{{ stageLive }}" hint-placeholder-val="{{ true }}"><span style="font:400 72px/1 'Anton',sans-serif;color:#C6FF3D">{{ stageEta }}<span style="font-size:26px;color:#F2F2EE"> MIN</span></span></sc-if><sc-if value="{{ stageDone }}" hint-placeholder-val="{{ false }}"><span style="font:400 56px/1 'Anton',sans-serif;color:#C6FF3D">DELIVERED ✓</span></sc-if><span style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">TAP A STAGE</span></div>
+<div style="padding:0 20px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px"><sc-for list="{{ stages }}" as="g" hint-placeholder-count="7"><button onClick="{{ g.pick }}" aria-label="{{ g.name }}" style="height:28px;border:0;background:transparent;padding:11px 0"><span style="display:block;height:6px;border-radius:3px;background:{{ g.bar }}"></span></button></sc-for></div>
+<div style="padding:8px 20px;display:flex;flex-direction:column">
+<sc-for list="{{ stages }}" as="g" hint-placeholder-count="7"><div style="display:grid;grid-template-columns:24px 1fr;gap:10px;padding:7px 0;font-size:15px;color:{{ g.fg }};font-weight:{{ g.weight }}"><span>{{ g.mark }}</span><span>{{ g.name }}</span></div></sc-for>
+</div>
+<sc-if value="{{ showDriver }}" hint-placeholder-val="{{ false }}"><div style="margin:4px 20px;background:#16181D;border:1px solid #2A2D35;border-radius:18px;padding:12px;display:flex;align-items:center;gap:12px"><div style="width:44px;height:44px;border-radius:50%;background:#2A2D35"></div><div style="flex:1"><b>Marcus · Direct delivery</b><div style="font-size:13px;color:#9A9DA6">Silver Prius · 4.9 ★</div></div><button style="background:transparent;border:1px solid #5A5E69;color:#F2F2EE;border-radius:999px;height:44px;padding:0 16px;font-weight:700">Call</button></div></sc-if>
+<div style="margin-top:auto;padding:0 20px 28px;display:flex;flex-direction:column;gap:8px">
+<sc-if value="{{ canCancel }}" hint-placeholder-val="{{ false }}"><button onClick="{{ cancelOrder }}" style="background:transparent;color:#FF3D8B;border:1px solid #FF3D8B;border-radius:999px;height:48px;font-weight:700">Request cancellation</button><span style="font-size:12px;color:#9A9DA6;text-align:center">Available until the kitchen starts your order. Refunds follow restaurant review.</span></sc-if>
+<sc-if value="{{ noCancel }}" hint-placeholder-val="{{ true }}"><span style="font-size:13px;color:#9A9DA6">The kitchen has started your order. For changes or cancellation, contact support.</span></sc-if>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><button style="background:#16181D;color:#F2F2EE;border:1px solid #2A2D35;border-radius:999px;height:52px;font-weight:700">Receipt</button><button style="background:#16181D;color:#F2F2EE;border:1px solid #2A2D35;border-radius:999px;height:52px;font-weight:700">Support</button></div></div>
+</div>
+
+<!-- M ACCOUNT -->
+<div data-screen-label="M Account" style="flex:none;width:390px;height:844px;border-radius:48px;border:10px solid #000;overflow:hidden;background:#0B0C0F;position:relative;display:flex;flex-direction:column">
+<div style="padding:16px 24px 0;display:flex;justify-content:space-between;font-weight:700;font-size:14px"><span>9:41</span><span>●●●</span></div>
+<div style="padding:20px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:hidden">
+<div style="display:flex;align-items:center;gap:12px"><div style="width:52px;height:52px;border-radius:50%;background:#2A2D35"></div><div><b style="font-size:18px">Jordan Kim</b><div style="font-size:13px;color:#9A9DA6">Theory Club · Lab Tech tier</div></div></div>
+<div style="background:linear-gradient(135deg,#16181D,#1E2129);border:1px solid #C6FF3D;border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">THEORY CLUB POINTS</span><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">250 TO NEXT REWARD</span></div><div style="font:400 64px/1 'Anton',sans-serif">1,250</div><div style="height:8px;border-radius:4px;background:#2A2D35"><div style="width:83%;height:100%;border-radius:4px;background:#C6FF3D"></div></div><span style="font-size:13px;color:#B4B7BF">Next: free 10-piece at 1,500</span></div>
+<div style="display:flex;flex-direction:column;gap:8px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">RECENT ORDERS</span>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center"><div><b>Korean Fire · 10 + Fries</b><div style="font-size:12px;color:#9A9DA6">Sep 24 · $31.20</div></div><button style="background:#C6FF3D;color:#0B0C0F;border:0;height:44px;padding:0 16px;border-radius:999px;font-weight:800;font-size:13px">Reorder</button></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center"><div><b>★ Game Night Pack</b><div style="font-size:12px;color:#9A9DA6">Favorite · Sep 13</div></div><button style="background:transparent;color:#F2F2EE;border:1px solid #5A5E69;height:44px;padding:0 16px;border-radius:999px;font-weight:700;font-size:13px">Reorder</button></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">FAVORITE FLAVORS</span><div style="display:flex;gap:6px;font-size:12px;font-weight:700"><span style="border:1px solid #FF3D8B;color:#FF3D8B;border-radius:999px;padding:7px 11px">No.04 Inferno</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:7px 11px">No.09 Korean Fire</span></div></div>
+<div style="display:flex;flex-direction:column;font-size:15px">
+<div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2A2D35"><span>Saved addresses</span><span style="color:#9A9DA6">2 ›</span></div>
+<div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2A2D35"><span>Payment methods</span><span style="color:#9A9DA6">Visa ··4242 ›</span></div>
+<div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2A2D35"><span>Gift cards</span><span style="color:#9A9DA6">$25.00 ›</span></div>
+<div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2A2D35"><span>Refer a friend · give $10, get $10</span><span style="color:#C6FF3D">Share ›</span></div>
+<div style="display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #2A2D35"><span>Communication preferences</span><span style="color:#9A9DA6">›</span></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #2A2D35;padding:10px 0 22px;font-size:10px;font-weight:700;text-align:center;letter-spacing:.04em;color:#9A9DA6"><span>HOME</span><span>MENU</span><span>ORDER</span><span>REWARDS</span><span style="color:#C6FF3D">ACCOUNT</span></div>
+</div>
+
+</div>
+</section>
+<section data-screen-label="Owner" style="padding:0 64px 96px;display:flex;flex-direction:column;gap:28px;font-family:'Archivo',sans-serif;color:#F2F2EE">
+<div style="font:700 13px 'JetBrains Mono',monospace;letter-spacing:.14em;color:#9A9DA6">03 — OPERATOR · DESKTOP &amp; KITCHEN</div>
+<div style="display:flex;gap:64px;flex-wrap:wrap;align-items:flex-start">
+
+<!-- COMMAND CENTER -->
+<div data-screen-label="Command Center" style="flex:none;width:1440px;height:900px;background:#0B0C0F;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:210px minmax(0,1fr);font-size:14px">
+<nav style="background:#111317;border-right:1px solid #2A2D35;padding:22px 12px;display:flex;flex-direction:column;gap:1px;font-weight:600;color:#B4B7BF">
+<div style="padding:0 10px 18px;font:400 22px 'Anton',sans-serif;color:#F2F2EE">WING THEORY<span style="color:#C6FF3D">.</span><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6;margin-top:4px">COMMAND CENTER</div></div>
+<span style="padding:9px 10px;border-radius:10px;background:#C6FF3D;color:#0B0C0F">Dashboard</span><span style="padding:9px 10px;display:flex;justify-content:space-between">Orders<b style="color:#C6FF3D">{{ activeCount }}</b></span><span style="padding:9px 10px">Kitchen</span><span style="padding:9px 10px">Menu</span><span style="padding:9px 10px">Inventory</span><span style="padding:9px 10px">Customers</span><span style="padding:9px 10px">Promotions</span><span style="padding:9px 10px">Theory Club</span><span style="padding:9px 10px">Delivery</span><span style="padding:9px 10px">Catering</span><span style="padding:9px 10px">Reviews</span><span style="padding:9px 10px">Marketing</span><span style="padding:9px 10px">Analytics</span><span style="padding:9px 10px">Finance</span><span style="padding:9px 10px">Staff</span><span style="padding:9px 10px">Integrations</span><span style="padding:9px 10px">Settings</span>
+</nav>
+<div style="padding:24px 32px;display:flex;flex-direction:column;gap:18px;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">SAT SEP 26 · 7:44 PM</div><div style="font:400 38px 'Anton',sans-serif">WING THEORY COMMAND CENTER</div></div>
+<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">KITCHEN CAPACITY</span><div role="radiogroup" aria-label="Kitchen capacity" style="display:flex;gap:4px;background:#16181D;border:1px solid #2A2D35;border-radius:999px;padding:4px"><sc-for list="{{ caps }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" style="border:0;border-radius:999px;padding:10px 16px;font:700 12px 'JetBrains Mono',monospace;background:{{ c.bg }};color:{{ c.fg }}">{{ c.name }}</button></sc-for></div><span style="font-size:12px;color:{{ capColor }}">{{ capNote }}</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">REVENUE TODAY</div><div style="font:700 26px 'JetBrains Mono',monospace">$6,482</div><div style="font-size:12px;color:#C6FF3D">▲ 14% vs last Sat</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">ORDERS TODAY</div><div style="font:700 26px 'JetBrains Mono',monospace">214</div><div style="font-size:12px;color:#C6FF3D">▲ 9%</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">AVG TICKET</div><div style="font:700 26px 'JetBrains Mono',monospace">$30.29</div><div style="font-size:12px;color:#9A9DA6">▲ $1.80</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">ACTIVE</div><div style="font:700 26px 'JetBrains Mono',monospace">{{ activeCount }}</div><div style="font-size:12px;color:#9A9DA6">in kitchen now</div></div>
+<div style="background:#16181D;border:1px solid #FF3D8B;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#FF3D8B">▲ NEAR SLA</div><div style="font:700 26px 'JetBrains Mono',monospace">{{ lateCount }}</div><div style="font-size:12px;color:#FF3D8B">≤3 min left</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">AVG PREP</div><div style="font:700 26px 'JetBrains Mono',monospace">14:20</div><div style="font-size:12px;color:#9A9DA6">target 15:00</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">RATING · CANCEL</div><div style="font:700 26px 'JetBrains Mono',monospace">4.8★</div><div style="font-size:12px;color:#9A9DA6">1.2% cancelled</div></div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;flex:1;min-height:0">
+<div style="display:flex;flex-direction:column;gap:16px;min-height:0">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px;flex:1"><div style="display:flex;justify-content:space-between"><b>Sales &amp; hourly demand</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">■ TODAY ▫ TYPICAL SAT</span></div>
+<div style="flex:1;display:flex;align-items:flex-end;gap:10px;border-bottom:1px solid #2A2D35">
+<div style="flex:1;height:18%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:30%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:48%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:40%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:26%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:34%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:58%;border-radius:6px 6px 0 0;background:#3D6BFF"></div><div style="flex:1;height:80%;border-radius:6px 6px 0 0;background:#3D6BFF"></div><div style="flex:1;height:97%;border-radius:6px 6px 0 0;background:#C6FF3D"></div><div style="flex:1;height:70%;border-radius:6px 6px 0 0;border:1px dashed #5A5E69"></div><div style="flex:1;height:52%;border-radius:6px 6px 0 0;border:1px dashed #5A5E69"></div><div style="flex:1;height:30%;border-radius:6px 6px 0 0;border:1px dashed #5A5E69"></div>
+</div><div style="display:flex;justify-content:space-between;font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6"><span>11A</span><span>2P</span><span>5P</span><span style="color:#C6FF3D">7P NOW</span><span>10P</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:8px"><b>Best sellers</b><div style="display:flex;justify-content:space-between"><span>No.07 Hot Honey</span><span style="font-family:'JetBrains Mono',monospace">68</span></div><div style="display:flex;justify-content:space-between"><span>No.09 Korean Fire</span><span style="font-family:'JetBrains Mono',monospace">51</span></div><div style="display:flex;justify-content:space-between"><span>Loaded Fries</span><span style="font-family:'JetBrains Mono',monospace">47</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:8px"><b>Delivery performance</b><div style="display:flex;justify-content:space-between"><span>On-time</span><span style="font-family:'JetBrains Mono',monospace;color:#C6FF3D">94%</span></div><div style="display:flex;justify-content:space-between"><span>Avg delivery</span><span style="font-family:'JetBrains Mono',monospace">27:40</span></div><div style="display:flex;justify-content:space-between"><span>Driver wait</span><span style="font-family:'JetBrains Mono',monospace">3:10</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:8px"><b>Low stock</b><div style="display:flex;justify-content:space-between"><span>Garlic Parm sauce</span><span style="font-family:'JetBrains Mono',monospace;color:#FF3D8B">1.2 qt</span></div><div style="display:flex;justify-content:space-between"><span>Blue cheese cups</span><span style="font-family:'JetBrains Mono',monospace;color:#FF8A1F">40</span></div><div style="display:flex;justify-content:space-between"><span>Tajín</span><span style="font-family:'JetBrains Mono',monospace">2 days</span></div></div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<b>Operational alerts</b>
+<div style="background:rgba(255,61,139,.1);border:1px solid #FF3D8B;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:700 11px 'JetBrains Mono',monospace;color:#FF3D8B">▲ SLA RISK</div><b style="font-size:16px">{{ lateCount }} orders approaching SLA</b></div><button style="background:#FF3D8B;color:#0B0C0F;border:0;border-radius:999px;height:40px;padding:0 14px;font-weight:800">View</button></div>
+<div style="background:rgba(255,138,31,.1);border:1px solid #FF8A1F;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><div><div style="font:700 11px 'JetBrains Mono',monospace;color:#FF8A1F">■ INVENTORY</div><b style="font-size:16px">Garlic Parmesan sauce running low</b><div style="font-size:12px;color:#B4B7BF">~45 min at current pace</div></div><button style="background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:999px;height:40px;padding:0 14px;font-weight:700">86 it</button></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px 16px"><div style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">● DEMAND</div><b style="font-size:16px">Delivery demand +27% vs normal</b><div style="font-size:12px;color:#B4B7BF">Consider BUSY to protect ETAs.</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px"><b>Channel mix · today</b><div style="display:flex;height:12px;border-radius:6px;overflow:hidden"><span style="width:38%;background:#C6FF3D"></span><span style="width:33%;background:#FF6A1F"></span><span style="width:19%;background:#3D6BFF"></span><span style="width:10%;background:#FF3D8B"></span></div><div style="display:flex;justify-content:space-between;font:700 11px 'JetBrains Mono',monospace;color:#B4B7BF"><span>DIRECT 38%</span><span>DOORDASH 33%</span><span>UBER 19%</span><span>GH 10%</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between"><span>Uber Eats menu sync</span><span style="font:700 12px 'JetBrains Mono',monospace;color:#FF8A1F">1 ERROR · RETRY</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- LIVE ORDERS -->
+<div data-screen-label="Live Orders" style="flex:none;width:1440px;height:900px;background:#0B0C0F;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;font-size:14px">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:22px 32px;border-bottom:1px solid #2A2D35"><div style="display:flex;align-items:baseline;gap:18px"><div style="font:400 36px 'Anton',sans-serif">LIVE ORDERS</div><span style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">{{ activeCount }} ACTIVE · {{ lateCount }} AT RISK · KITCHEN {{ capName }}</span></div>
+<div style="display:flex;gap:8px;align-items:center"><span style="border:1px solid #2A2D35;border-radius:999px;padding:9px 14px;font-weight:700">All channels ▾</span><button onClick="{{ resetOrders }}" style="background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:999px;height:40px;padding:0 16px;font-weight:700">Reset demo</button></div></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:20px 24px;flex:1;min-height:0">
+<sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
+<div style="background:#111317;border:1px solid #2A2D35;border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden">
+<div style="display:flex;justify-content:space-between;font:700 12px 'JetBrains Mono',monospace;color:#B4B7BF;padding:2px 4px"><span>{{ col.name }}</span><span>{{ col.count }}</span></div>
+<sc-for list="{{ col.orders }}" as="o" hint-placeholder-count="2">
+<div style="background:#16181D;border:1px solid {{ o.bd }};box-shadow:{{ o.glow }};border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font:700 18px 'JetBrains Mono',monospace">#{{ o.id }}</b><span style="font:700 12px 'JetBrains Mono',monospace;color:{{ o.leftCol }}">{{ o.ageTxt }} · {{ o.leftTxt }}</span></div>
+<div style="display:flex;justify-content:space-between"><span>{{ o.cust }} · {{ o.items }} items</span><b style="font-family:'JetBrains Mono',monospace">{{ o.totalTxt }}</b></div>
+<div style="display:flex;gap:6px;align-items:center;font:700 11px 'JetBrains Mono',monospace"><span style="width:8px;height:8px;border-radius:50%;background:{{ o.chCol }}"></span>{{ o.ch }} · DELIVERY</div>
+<sc-if value="{{ o.hasNote }}" hint-placeholder-val="{{ false }}"><div style="background:rgba(255,138,31,.12);border-left:3px solid #FF8A1F;border-radius:6px;padding:8px 10px;font:700 12px 'JetBrains Mono',monospace;color:#FFC69A">{{ o.note }}</div></sc-if>
+<div style="display:flex;gap:6px"><button onClick="{{ o.act }}" style="flex:1;background:#C6FF3D;color:#0B0C0F;border:0;border-radius:999px;height:44px;font-weight:800">{{ o.action }}</button><sc-if value="{{ o.isNew }}" hint-placeholder-val="{{ false }}"><button onClick="{{ o.reject }}" style="background:transparent;color:#FF3D8B;border:1px solid #FF3D8B;border-radius:999px;height:44px;padding:0 14px;font-weight:700">Reject</button></sc-if><button aria-label="More actions: delay, contact, refund, print" style="background:transparent;color:#F2F2EE;border:1px solid #2A2D35;border-radius:999px;width:44px;height:44px">⋯</button></div>
+</div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<div style="padding:0 24px 18px;font-size:12px;color:#9A9DA6">⋯ opens: Delay · Contact customer · Cancel · Refund (full / partial) · Print · View details. Late orders get a magenta outline and a "min left" label, not color alone.</div>
+</div>
+
+<!-- KDS -->
+<div data-screen-label="Kitchen Display" style="flex:none;width:1440px;height:900px;background:#000;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;font-family:'Archivo',sans-serif">
+<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:#0B0C0F;border-bottom:1px solid #2A2D35">
+<div style="display:flex;gap:8px;font-weight:800;font-size:18px"><span style="background:#C6FF3D;color:#0B0C0F;border-radius:14px;padding:14px 22px">FRY · 6</span><span style="background:#16181D;border-radius:14px;padding:14px 22px">SAUCE · 4</span><span style="background:#16181D;border-radius:14px;padding:14px 22px">ASSEMBLY · 3</span><span style="background:#16181D;border-radius:14px;padding:14px 22px">PACKAGING · 2</span></div>
+<span style="font:700 28px 'JetBrains Mono',monospace">7:44 PM</span></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:16px;flex:1">
+<div style="background:#16181D;border:3px solid #FF3D8B;border-radius:18px;display:flex;flex-direction:column;overflow:hidden"><div style="background:#FF3D8B;color:#000;padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline"><b style="font:700 30px 'JetBrains Mono',monospace">#2048</b><b style="font:700 36px 'JetBrains Mono',monospace">19:02</b></div><div style="padding:6px 16px;font:700 14px 'JetBrains Mono',monospace;background:#2A0E1B;color:#FF9CC3">▲ LATE · DUE 2 MIN · DIRECT</div><div style="padding:16px;display:flex;flex-direction:column;gap:14px;font-size:22px;font-weight:700"><div>10 × BONE-IN<div style="font-size:26px;color:#C6FF3D">2 × HOT HONEY<br>1 × KOREAN FIRE</div></div><div style="background:#FF8A1F;color:#000;border-radius:10px;padding:8px 12px;font-size:24px;font-weight:800">EXTRA CRISPY</div><div>6 × BONELESS · MILD</div></div><button style="margin-top:auto;background:#C6FF3D;color:#000;border:0;height:72px;font-weight:800;font-size:22px">BUMP ✓</button></div>
+<div style="background:#16181D;border:3px solid #FF8A1F;border-radius:18px;display:flex;flex-direction:column;overflow:hidden"><div style="background:#FF8A1F;color:#000;padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline"><b style="font:700 30px 'JetBrains Mono',monospace">#2049</b><b style="font:700 36px 'JetBrains Mono',monospace">11:40</b></div><div style="padding:6px 16px;font:700 14px 'JetBrains Mono',monospace;color:#9A9DA6">UBER EATS · DUE 13 MIN</div><div style="padding:16px;display:flex;flex-direction:column;gap:14px;font-size:22px;font-weight:700"><div>10 × BONE-IN<div style="font-size:26px;color:#C6FF3D">NASHVILLE INFERNO</div></div><div style="background:#FF3D8B;color:#000;border-radius:10px;padding:8px 12px;font-size:24px;font-weight:800">⚠ ALLERGY: SESAME</div><div style="font-size:24px;font-weight:800;border:2px solid #F2F2EE;border-radius:10px;padding:6px 12px">NO RANCH</div></div><button style="margin-top:auto;background:#C6FF3D;color:#000;border:0;height:72px;font-weight:800;font-size:22px">BUMP ✓</button></div>
+<div style="background:#16181D;border:3px solid #2A2D35;border-radius:18px;display:flex;flex-direction:column;overflow:hidden"><div style="background:#2A2D35;padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline"><b style="font:700 30px 'JetBrains Mono',monospace">#2052</b><b style="font:700 36px 'JetBrains Mono',monospace">03:12</b></div><div style="padding:6px 16px;font:700 14px 'JetBrains Mono',monospace;color:#9A9DA6">DOORDASH · DUE 25 MIN</div><div style="padding:16px;display:flex;flex-direction:column;gap:14px;font-size:22px;font-weight:700"><div>20 × BONE-IN<div style="font-size:26px;color:#C6FF3D">2 × LEMON PEPPER<br>2 × BUFFALO</div></div><div>2 × TENDERS · CLASSIC</div><div>LOADED FRIES</div></div><button style="margin-top:auto;background:#C6FF3D;color:#000;border:0;height:72px;font-weight:800;font-size:22px">BUMP ✓</button></div>
+<div style="background:#16181D;border:3px solid #2A2D35;border-radius:18px;display:flex;flex-direction:column;overflow:hidden"><div style="background:#2A2D35;padding:14px 16px;display:flex;justify-content:space-between;align-items:baseline"><b style="font:700 30px 'JetBrains Mono',monospace">#2053</b><b style="font:700 36px 'JetBrains Mono',monospace">01:05</b></div><div style="padding:6px 16px;font:700 14px 'JetBrains Mono',monospace;color:#9A9DA6">DIRECT · DUE 27 MIN</div><div style="padding:16px;display:flex;flex-direction:column;gap:14px;font-size:22px;font-weight:700"><div>10 × BONE-IN<div style="font-size:26px;color:#C6FF3D">KOREAN FIRE · HEAT 4</div></div><div style="background:#FF8A1F;color:#000;border-radius:10px;padding:8px 12px;font-size:24px;font-weight:800">EXTRA CRISPY</div><div style="font-size:24px;font-weight:800;border:2px solid #F2F2EE;border-radius:10px;padding:6px 12px">NO RANCH</div></div><button style="margin-top:auto;background:#C6FF3D;color:#000;border:0;height:72px;font-weight:800;font-size:22px">BUMP ✓</button></div>
+</div>
+</div>
+
+<!-- MENU MANAGEMENT -->
+<div data-screen-label="Menu Management" style="flex:none;width:1440px;height:900px;background:#0B0C0F;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);font-size:14px">
+<div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px;border-right:1px solid #2A2D35;overflow:hidden">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font:400 36px 'Anton',sans-serif">MENU MANAGEMENT</div><div style="display:flex;gap:8px"><span style="font:700 12px 'JetBrains Mono',monospace;color:#FF3D8B;align-self:center">{{ soldCount }} SOLD OUT</span><button style="background:#C6FF3D;color:#0B0C0F;border:0;border-radius:999px;height:40px;padding:0 16px;font-weight:800">+ New item</button></div></div>
+<div style="display:flex;gap:6px;font-weight:700;font-size:13px"><span style="background:#F2F2EE;color:#0B0C0F;border-radius:999px;padding:8px 14px">All items</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Categories</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Modifier groups</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Sauces</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Scheduled &amp; limited</span></div>
+<div style="display:grid;grid-template-columns:52px minmax(0,2fr) minmax(0,1.2fr) 80px 70px minmax(0,1.6fr) 110px;gap:12px;font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6;padding:0 8px"><span></span><span>ITEM</span><span>CATEGORY</span><span>PRICE</span><span>HEAT</span><span>CHANNELS</span><span style="text-align:right">AVAILABILITY</span></div>
+<sc-for list="{{ mgmtRows }}" as="r" hint-placeholder-count="8">
+<div style="display:grid;grid-template-columns:52px minmax(0,2fr) minmax(0,1.2fr) 80px 70px minmax(0,1.6fr) 110px;gap:12px;align-items:center;background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:8px">
+<div style="height:52px;border-radius:10px;overflow:hidden;position:relative"><image-slot id="{{ r.slot }}" shape="rect" style="position:absolute;inset:0" placeholder="+"></image-slot></div>
+<div><b>{{ r.name }}</b><div style="font:700 11px 'JetBrains Mono',monospace;color:{{ r.stCol }}">● {{ r.status }}</div></div>
+<span style="color:#B4B7BF">{{ r.cat }}</span><span style="font-family:'JetBrains Mono',monospace">{{ r.priceTxt }}</span><span style="font:700 12px 'JetBrains Mono',monospace;color:{{ r.heatBg }}">H{{ r.heat }}</span><span style="font-size:12px;color:#9A9DA6">{{ r.chans }}</span>
+<button onClick="{{ r.toggle }}" style="justify-self:end;background:{{ r.btnBg }};color:{{ r.btnFg }};border:1px solid {{ r.btnBd }};border-radius:999px;height:40px;padding:0 14px;font-weight:800;font-size:13px">{{ r.btn }}</button>
+</div>
+</sc-for>
+</div>
+<div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px;overflow:hidden">
+<div style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">EDITING · THEORY NO.07</div>
+<div style="height:180px;border-radius:18px;overflow:hidden;position:relative"><image-slot id="mm-edit" shape="rect" style="position:absolute;inset:0" placeholder="Product photo · drop to replace"></image-slot></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Name</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:12px;padding:12px">Hot Honey Wings</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Description</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:12px;padding:12px;color:#B4B7BF">Wildflower honey, chili flake, lemon zest.</span></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Sizes &amp; prices</span><div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;font:700 12px 'JetBrains Mono',monospace;text-align:center"><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">6<br>$9.99</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">10<br>$15.99</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">15<br>$22.99</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">20<br>$29.99</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">30<br>$43.99</span><span style="background:#16181D;border:1px solid #2A2D35;border-radius:10px;padding:8px 0">50<br>$69.99</span></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Modifier groups</span>
+<div style="display:flex;justify-content:space-between;background:#16181D;border:1px solid #2A2D35;border-radius:12px;padding:10px 12px"><span>Chicken type · required · 1</span><span style="color:#9A9DA6">3 options</span></div>
+<div style="display:flex;justify-content:space-between;background:#16181D;border:1px solid #2A2D35;border-radius:12px;padding:10px 12px"><span>Sauces · 1–3 by quantity</span><span style="color:#9A9DA6">12 options</span></div>
+<div style="display:flex;justify-content:space-between;background:#16181D;border:1px solid #2A2D35;border-radius:12px;padding:10px 12px"><span>Heat · Crispiness · Sauce level · Dips</span><span style="color:#9A9DA6">4 groups</span></div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700">Allergens</span><div style="display:flex;gap:6px;flex-wrap:wrap;font-size:12px;font-weight:700"><span style="border:1px solid #F2F2EE;border-radius:999px;padding:6px 10px">✓ Dairy</span><span style="border:1px solid #F2F2EE;border-radius:999px;padding:6px 10px">✓ Wheat</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:6px 10px;color:#9A9DA6">Sesame</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:6px 10px;color:#9A9DA6">Soy</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:6px 10px;color:#9A9DA6">+ Nutrition</span></div></div>
+<div style="margin-top:auto;font-size:12px;color:#9A9DA6">Availability changes push to Direct, DoorDash and Uber Eats immediately. Grubhub isn't connected.</div>
+</div>
+</div>
+
+<!-- ANALYTICS -->
+<div data-screen-label="Analytics" style="flex:none;width:1440px;height:900px;background:#0B0C0F;border-radius:16px;overflow:hidden;padding:24px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;font-size:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font:400 36px 'Anton',sans-serif">ANALYTICS</div><div style="display:flex;gap:6px;font-weight:700;font-size:13px"><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Today</span><span style="background:#F2F2EE;color:#0B0C0F;border-radius:999px;padding:8px 14px">Last 30 days</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Quarter</span><span style="border:1px solid #2A2D35;border-radius:999px;padding:8px 14px">Export</span></div></div>
+<div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">GROSS SALES</div><div style="font:700 22px 'JetBrains Mono',monospace">$184.2K</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">NET SALES</div><div style="font:700 22px 'JetBrains Mono',monospace">$151.9K</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">ORDERS</div><div style="font:700 22px 'JetBrains Mono',monospace">6,118</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">AOV</div><div style="font:700 22px 'JetBrains Mono',monospace">$30.11</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">PREP / DELIVERY</div><div style="font:700 22px 'JetBrains Mono',monospace">14m/27m</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">REFUNDS · DISC.</div><div style="font:700 22px 'JetBrains Mono',monospace">0.8%·6%</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">REPEAT RATE</div><div style="font:700 22px 'JetBrains Mono',monospace;color:#C6FF3D">41%</div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:14px;padding:12px"><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">CLUB MEMBERS</div><div style="font:700 22px 'JetBrains Mono',monospace">3,402</div></div>
+</div>
+<div style="display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;flex:1;min-height:0">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px"><b>Revenue by hour · avg day</b>
+<div style="flex:1;display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid #2A2D35">
+<div style="flex:1;height:14%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:32%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:44%;border-radius:6px 6px 0 0;background:#3D6BFF"></div><div style="flex:1;height:36%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:24%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:30%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:56%;border-radius:6px 6px 0 0;background:#3D6BFF"></div><div style="flex:1;height:82%;border-radius:6px 6px 0 0;background:#C6FF3D"></div><div style="flex:1;height:94%;border-radius:6px 6px 0 0;background:#C6FF3D"></div><div style="flex:1;height:72%;border-radius:6px 6px 0 0;background:#3D6BFF"></div><div style="flex:1;height:50%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:34%;border-radius:6px 6px 0 0;background:#3A3D46"></div><div style="flex:1;height:22%;border-radius:6px 6px 0 0;background:#3A3D46"></div>
+</div><div style="display:flex;justify-content:space-between;font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6"><span>11A</span><span>2P</span><span>5P</span><span>8P</span><span>11P</span><span>1A</span></div></div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px"><b>Top flavors</b>
+<div style="display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center"><span>No.07 Hot Honey</span><span style="height:10px;border-radius:5px;background:#C6FF3D;width:100%"></span><span style="font-family:'JetBrains Mono',monospace">24%</span></div>
+<div style="display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center"><span>No.09 Korean Fire</span><span style="height:10px;border-radius:5px;background:#E3F53A;width:78%"></span><span style="font-family:'JetBrains Mono',monospace">19%</span></div>
+<div style="display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center"><span>No.01 Buffalo</span><span style="height:10px;border-radius:5px;background:#FF8A1F;width:60%"></span><span style="font-family:'JetBrains Mono',monospace">15%</span></div>
+<div style="display:grid;grid-template-columns:130px 1fr 44px;gap:10px;align-items:center"><span>No.04 Inferno</span><span style="height:10px;border-radius:5px;background:#FF3D8B;width:44%"></span><span style="font-family:'JetBrains Mono',monospace">11%</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:18px;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center"><div style="width:120px;height:120px;border-radius:50%;background:conic-gradient(#C6FF3D 0 41%,#3D6BFF 41% 100%);display:flex;align-items:center;justify-content:center"><div style="width:76px;height:76px;border-radius:50%;background:#16181D;display:flex;align-items:center;justify-content:center;font:700 16px 'JetBrains Mono',monospace">41%</div></div><div style="display:flex;flex-direction:column;gap:6px"><b>New vs returning</b><span style="color:#C6FF3D">■ Returning 41%</span><span style="color:#8FA9FF">■ New 59%</span><span style="font-size:12px;color:#9A9DA6">Club members order 2.3× more often.</span></div></div>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:8px"><b>Revenue by channel</b><div style="display:flex;height:14px;border-radius:7px;overflow:hidden"><span style="width:38%;background:#C6FF3D"></span><span style="width:33%;background:#FF6A1F"></span><span style="width:19%;background:#3D6BFF"></span><span style="width:10%;background:#FF3D8B"></span></div><span style="font:700 11px 'JetBrains Mono',monospace;color:#B4B7BF">DIRECT 38 · DOORDASH 33 · UBER 19 · GRUBHUB 10</span></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:6px"><b>Top products</b><div style="display:flex;justify-content:space-between"><span>Hot Honey 10pc</span><span style="font-family:'JetBrains Mono',monospace">1,482</span></div><div style="display:flex;justify-content:space-between"><span>Loaded Theory Fries</span><span style="font-family:'JetBrains Mono',monospace">1,207</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:6px"><b>Loyalty participation</b><div style="display:flex;justify-content:space-between"><span>Direct orders by members</span><span style="font-family:'JetBrains Mono',monospace;color:#C6FF3D">62%</span></div><div style="display:flex;justify-content:space-between"><span>Rewards redeemed</span><span style="font-family:'JetBrains Mono',monospace">418</span></div></div>
+</div>
+</div>
+
+<!-- INTEGRATIONS -->
+<div data-screen-label="Integrations" style="flex:none;width:1440px;height:900px;background:#0B0C0F;border-radius:16px;overflow:hidden;padding:24px 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px;font-size:14px">
+<div style="display:flex;justify-content:space-between;align-items:center"><div style="font:400 36px 'Anton',sans-serif">INTEGRATIONS</div><span style="font-size:13px;color:#9A9DA6">Each provider runs through its own adapter. Nothing here is live until connected and verified.</span></div>
+<div style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">DELIVERY PROVIDERS</div>
+<div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px">
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">Direct delivery</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">● LIVE</span></div><div style="font-size:13px;color:#B4B7BF;display:flex;flex-direction:column;gap:4px"><span>Own drivers + on-demand dispatch</span><span>Today: 81 orders · 96% on-time</span><span>Commission: 0%</span></div></div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">DoorDash</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#C6FF3D">● CONNECTED</span></div><div style="font-size:13px;color:#B4B7BF;display:flex;flex-direction:column;gap:4px"><span>Menu: synced 4 min ago</span><span>Today: 71 orders · 93% on-time</span><span>Commission: $412.30</span></div></div>
+<div style="background:#16181D;border:1px solid #FF8A1F;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">Uber Eats</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#FF8A1F">▲ SYNC ERROR</span></div><div style="font-size:13px;color:#B4B7BF;display:flex;flex-direction:column;gap:4px"><span>1 item failed: "Experiment 12" missing photo</span><span>Today: 41 orders · 91% on-time</span><span>Commission: $238.10</span></div><button style="align-self:flex-start;background:#FF8A1F;color:#0B0C0F;border:0;border-radius:999px;height:36px;padding:0 14px;font-weight:800">Retry sync</button></div>
+<div style="background:#16181D;border:1px dashed #5A5E69;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:17px">Grubhub</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">○ NOT CONNECTED</span></div><span style="font-size:13px;color:#B4B7BF">Marketplace orders, menu sync, commission reporting.</span><button style="align-self:flex-start;background:transparent;color:#F2F2EE;border:1px solid #5A5E69;border-radius:999px;height:36px;padding:0 14px;font-weight:700">Connect</button></div>
+<div style="border:1px dashed #2A2D35;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px;justify-content:center;align-items:center;color:#9A9DA6;text-align:center"><b style="font-size:24px;color:#F2F2EE">+</b>Add provider<span style="font-size:12px">Uses the same adapter interface</span></div>
+</div>
+<div style="background:#16181D;border:1px solid #2A2D35;border-radius:20px;padding:16px 18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+<div><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">MARKETPLACE ORDERS · 24H</div><div style="font:700 22px 'JetBrains Mono',monospace">112</div></div>
+<div><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">OUTAGES · 7D</div><div style="font:700 22px 'JetBrains Mono',monospace">1 <span style="font-size:13px;color:#9A9DA6">DoorDash · 14 min</span></div></div>
+<div><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">SYNC ERRORS OPEN</div><div style="font:700 22px 'JetBrains Mono',monospace;color:#FF8A1F">1</div></div>
+<div><div style="font:700 10px 'JetBrains Mono',monospace;color:#9A9DA6">COMMISSIONS · MTD</div><div style="font:700 22px 'JetBrains Mono',monospace">$14,806</div></div>
+</div>
+<div style="font:700 12px 'JetBrains Mono',monospace;color:#9A9DA6">POINT OF SALE · ARCHITECTURE ONLY</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+<div style="background:#16181D;border:1px dashed #5A5E69;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px"><b style="font-size:17px">Toast</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">○ PLANNED</span><span style="font-size:13px;color:#B4B7BF">Order injection, menu import, inventory sync</span></div>
+<div style="background:#16181D;border:1px dashed #5A5E69;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px"><b style="font-size:17px">Square</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">○ PLANNED</span><span style="font-size:13px;color:#B4B7BF">Order injection, catalog sync</span></div>
+<div style="background:#16181D;border:1px dashed #5A5E69;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px"><b style="font-size:17px">Clover</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">○ PLANNED</span><span style="font-size:13px;color:#B4B7BF">Order injection, inventory</span></div>
+<div style="background:#16181D;border:1px dashed #5A5E69;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:8px"><b style="font-size:17px">Oracle MICROS</b><span style="font:700 11px 'JetBrains Mono',monospace;color:#9A9DA6">○ PLANNED</span><span style="font-size:13px;color:#B4B7BF">Enterprise order routing</span></div>
+</div>
+<div style="margin-top:auto;font-size:12px;color:#9A9DA6">Status labels use text and a symbol (● ▲ ○) as well as color.</div>
+</div>
+
+</div>
+</section></x-dc>
+<script type="text/x-dc" data-dc-script>
+const HEAT = ['No Heat','Mild','Medium','Hot','Fire','Theory Breaker'];
+const HEAT_COPY = ['All flavor, zero burn.','A warm hello.','Noticeable, friendly.','The house standard.','Sweat is expected.','Proceed with courage.'];
+const HEAT_COL = ['#8A8E98','#C6FF3D','#E3F53A','#FF8A1F','#FF5A5A','#FF3D8B'];
+const CATS = ['All','Signature Wings','Bone-In Wings','Boneless Wings','Chicken Tenders','Chicken Sandwiches','Loaded Fries','Sides','Dips','Desserts','Drinks','Combos','Family Packs','Catering'];
+const FILTERS = ['Popular','New','Mild','Medium','Hot','Extreme','Vegetarian sides','Gluten-aware'];
+const ITEMS = [
+ {id:'hh',no:'THEORY NO.07',name:'Hot Honey Wings',cat:'Signature Wings',desc:'Wildflower honey, chili flake, lemon zest.',price:13.49,heat:3,tags:['Popular']},
+ {id:'kf',no:'THEORY NO.09',name:'Korean Fire Wings',cat:'Signature Wings',desc:'Gochujang glaze, toasted sesame, scallion.',price:13.99,heat:4,tags:['Popular']},
+ {id:'ni',no:'THEORY NO.04',name:'Nashville Inferno',cat:'Signature Wings',desc:'Ghost pepper oil, brown sugar, dill pickle.',price:13.99,heat:5,tags:[]},
+ {id:'x12',no:'EXPERIMENT 12',name:'Mango Habanero × Tajín',cat:'Signature Wings',desc:'Limited run. Mango glaze, habanero, chili-lime dust.',price:14.49,heat:4,tags:['New']},
+ {id:'lp',no:'THEORY NO.03',name:'Lemon Pepper Wings',cat:'Bone-In Wings',desc:'Cracked pepper, lemon, brown butter.',price:12.99,heat:1,tags:['Gluten-aware']},
+ {id:'gp',no:'THEORY NO.02',name:'Garlic Parmesan Wings',cat:'Bone-In Wings',desc:'Roasted garlic, aged parmesan, parsley.',price:12.99,heat:0,tags:['Popular']},
+ {id:'bb',no:'THEORY NO.01',name:'Classic Buffalo Boneless',cat:'Boneless Wings',desc:'Aged cayenne, cultured butter.',price:11.99,heat:2,tags:[]},
+ {id:'fs',no:'',name:'Fire Chicken Sandwich',cat:'Chicken Sandwiches',desc:'Nashville thigh, slaw, pickles, brioche.',price:11.99,heat:3,tags:['New']},
+ {id:'lf',no:'',name:'Loaded Theory Fries',cat:'Loaded Fries',desc:'Cheese sauce, pickled jalapeño, crispy chicken.',price:8.49,heat:2,tags:['Popular']},
+ {id:'sf',no:'',name:'Seasoned Fries',cat:'Sides',desc:'Theory dust, sea salt.',price:4.49,heat:0,tags:['Vegetarian sides','Gluten-aware']},
+ {id:'mc',no:'',name:'Three-Cheese Mac',cat:'Sides',desc:'Sharp cheddar, gruyère, toasted crumbs.',price:4.99,heat:0,tags:['Vegetarian sides']},
+ {id:'ct',no:'',name:'Chicken Tenders',cat:'Chicken Tenders',desc:'Buttermilk brined, hand breaded.',price:10.99,heat:0,tags:[]},
+];
+const HEATF = {Mild:h=>h<=1,Medium:h=>h===2,Hot:h=>h===3||h===4,Extreme:h=>h===5};
+const CAPS = [{k:'NORMAL',eta:28,c:'#C6FF3D'},{k:'BUSY',eta:40,c:'#FF8A1F'},{k:'VERY BUSY',eta:55,c:'#FF5A5A'},{k:'PAUSED',eta:null,c:'#FF3D8B'}];
+const ST = ['New','Preparing','Ready','Out for delivery'];
+const ACT = ['Accept','Mark ready','Driver picked up','Complete'];
+const ORDERS = [
+ {id:'2053',cust:'Jordan K.',ch:'Direct',items:3,note:'EXTRA CRISPY · NO RANCH',total:34.20,age:1,promise:28,st:0},
+ {id:'2052',cust:'Priya S.',ch:'DoorDash',items:5,note:'',total:58.75,age:3,promise:28,st:0},
+ {id:'2049',cust:'Alex M.',ch:'Uber Eats',items:2,note:'ALLERGY: SESAME',total:22.10,age:11,promise:25,st:1},
+ {id:'2048',cust:'Sam T.',ch:'Direct',items:4,note:'2 × HOT HONEY · 1 × KOREAN FIRE',total:41.60,age:19,promise:21,st:1},
+ {id:'2046',cust:'Dana R.',ch:'Grubhub',items:1,note:'',total:15.49,age:17,promise:18,st:2},
+ {id:'2044',cust:'Chris L.',ch:'DoorDash',items:6,note:'Leave at door',total:72.30,age:24,promise:34,st:3},
+];
+const CH_COL = {Direct:'#C6FF3D','DoorDash':'#FF6A1F','Uber Eats':'#3D6BFF','Grubhub':'#FF3D8B'};
+const STAGES = ['Order received','Confirmed','Wings in the lab','Sauced','Packed','Out for delivery','Delivered'];
+const STAGE_COPY = ['ORDER RECEIVED.','THE THEORY IS IN MOTION.','YOUR THEORY IS GETTING CRISPY.','YOUR THEORY IS GETTING SAUCED.','PACKED. SEALED. LEAVING.','ON THE MOVE.','THE RESULTS ARE IN.'];
+const STAGE_ETA = [34,32,26,20,16,9,0];
+const QTY = [6,10,15,20,30,50], QTY_P = [9.99,15.99,22.99,29.99,43.99,69.99];
+const TIPS = [0,.15,.18,.20];
+const $ = n => '$'+n.toFixed(2);
+
+class Component extends DCLogic {
+  state = { heat:4, cat:0, filters:[], cap:0, orders:ORDERS, sold:['gp'], cart:2, toast:0, stage:3, tip:2, sched:0, pay:0, qty:1, crisp:1 };
+  addToCart = () => { this.setState(s=>({cart:s.cart+1, toast:s.toast+1})); clearTimeout(this._t); this._t = setTimeout(()=>this.setState({toast:0}),1800); };
+  componentWillUnmount(){ clearTimeout(this._t); }
+  renderVals() {
+    const s = this.state, v = {};
+    // heat + customize
+    v.heatPips = HEAT.map((label,i)=>{ const on = s.heat===0 ? i===0 : (i>0 && i<=s.heat); return {n:i,label:`Heat ${i}: ${label}`,bg:on?HEAT_COL[i]:'#16181D',fg:on?'#0B0C0F':'#9A9DA6',pick:()=>this.setState({heat:i})}; });
+    v.heatN = s.heat; v.heatLabel = HEAT[s.heat].toUpperCase(); v.heatColor = HEAT_COL[s.heat]; v.heatPct = `${Math.max(4,s.heat/5*100)}%`; v.heatCopy = HEAT_COPY[s.heat];
+    v.qtys = QTY.map((q,i)=>({name:q,bg:i===s.qty?'#C6FF3D':'#16181D',fg:i===s.qty?'#0B0C0F':'#F2F2EE',pick:()=>this.setState({qty:i})}));
+    v.sauceSlots = QTY[s.qty]>=15 ? 'Up to 2 sauces' : QTY[s.qty]>=30 ? 'Up to 3 sauces' : '1 sauce';
+    if (QTY[s.qty]>=30) v.sauceSlots = 'Up to 3 sauces';
+    v.crisps = ['Classic','Extra Crispy'].map((n,i)=>({name:n,bd:i===s.crisp?'#C6FF3D':'#2A2D35',pick:()=>this.setState({crisp:i})}));
+    v.itemPrice = $(QTY_P[s.qty] + 1.00);
+    // menu
+    v.cats = CATS.map((name,i)=>({name,bg:i===s.cat?'#C6FF3D':'transparent',fg:i===s.cat?'#0B0C0F':'#F2F2EE',pick:()=>this.setState({cat:i})}));
+    v.mcats = CATS.slice(1,9).map((name,i)=>({name,bg:i+1===s.cat?'#C6FF3D':'#16181D',fg:i+1===s.cat?'#0B0C0F':'#F2F2EE',pick:()=>this.setState({cat:i+1})}));
+    v.catName = CATS[s.cat]==='All' ? 'Full menu' : CATS[s.cat];
+    v.filterChips = FILTERS.map(f=>{ const on = s.filters.includes(f); return {label:(on?'✓ ':'')+f,on,bg:on?'#F2F2EE':'transparent',fg:on?'#0B0C0F':'#F2F2EE',bd:on?'#F2F2EE':'#2A2D35',pick:()=>this.setState(st=>({filters:on?st.filters.filter(x=>x!==f):[...st.filters,f]}))}; });
+    const list = ITEMS.filter(it => (s.cat===0 || it.cat===CATS[s.cat]) && s.filters.every(f => HEATF[f] ? HEATF[f](it.heat) : it.tags.includes(f)));
+    const mk = it => { const sold = s.sold.includes(it.id); return {...it, slot:'menu-'+it.id, heatBg:HEAT_COL[it.heat], priceTxt:$(it.price), badges:sold?['SOLD OUT']:it.tags.filter(t=>t==='Popular'||t==='New').map(t=>t.toUpperCase()), sold, op:sold?0.55:1, btnBg:sold?'#5A5E69':'#C6FF3D', addLabel:sold?'Sold out':'+ Add', add:sold?undefined:this.addToCart}; };
+    v.menuItems = list.map(mk); v.itemCount = list.length; v.menuEmpty = list.length===0;
+    v.mobileItems = ITEMS.filter(it=>s.cat===0||it.cat===CATS[s.cat]).slice(0,4).map(mk);
+    v.cartCount = s.cart; v.addToCart = this.addToCart; v.toastKey = s.toast; v.showToast = s.toast>0;
+    v.toastEl = s.toast>0 ? React.createElement('div',{key:s.toast,role:'status',style:{position:'absolute',left:16,right:16,bottom:150,background:'#C6FF3D',color:'#0B0C0F',borderRadius:18,padding:'14px 16px',fontWeight:800,fontSize:14,display:'flex',justifyContent:'space-between',animation:'wtToast 1.8s ease forwards',boxShadow:'0 10px 40px rgba(198,255,61,.35)'}}, React.createElement('span',null,'Added. Sauce incoming.'), React.createElement('span',null,'View cart →')) : null;
+    // capacity
+    const cap = CAPS[s.cap];
+    v.caps = CAPS.map((c,i)=>({name:c.k,bg:i===s.cap?c.c:'transparent',fg:i===s.cap?'#0B0C0F':'#B4B7BF',pick:()=>this.setState({cap:i})}));
+    v.capName = cap.k; v.capColor = cap.c; v.paused = cap.eta==null;
+    v.eta = cap.eta==null ? 'Ordering paused' : `~${cap.eta}–${cap.eta+8} min`;
+    v.etaShort = cap.eta==null ? 'PAUSED' : `~${cap.eta} MIN`;
+    v.capNote = ['Quoted delivery ETA 28–36 min on all channels.','ETA +12 min on all channels.','ETA +27 min. Marketplace throttling on.','Direct ordering off. Marketplaces paused.'][s.cap];
+    // checkout
+    const sub = 16.99+8.49+1.00, del = 2.99, tax = sub*0.1035, tip = sub*TIPS[s.tip];
+    v.tips = TIPS.map((t,i)=>({name:t?`${Math.round(t*100)}%`:'None',bg:i===s.tip?'#C6FF3D':'#0B0C0F',fg:i===s.tip?'#0B0C0F':'#F2F2EE',pick:()=>this.setState({tip:i})}));
+    v.t_sub=$(sub); v.t_del=$(del); v.t_tax=$(tax); v.t_tip=$(tip); v.t_total=$(sub+del+tax+tip-5);
+    v.scheds = [{name:'ASAP',sub:v.eta},{name:'Schedule',sub:'Pick a time today or later'}].map((o,i)=>({...o,bg:i===s.sched?'rgba(198,255,61,.08)':'#0B0C0F',bd:i===s.sched?'#C6FF3D':'#2A2D35',pick:()=>this.setState({sched:i})}));
+    v.pays = ['Card','Apple Pay','Google Pay','PayPal','Gift card'].map((n,i)=>({name:n,bg:i===s.pay?'rgba(198,255,61,.08)':'#0B0C0F',bd:i===s.pay?'#C6FF3D':'#2A2D35',pick:()=>this.setState({pay:i})}));
+    // tracking
+    v.stages = STAGES.map((n,i)=>({name:n,mark:i<s.stage?'✓':i===s.stage?'●':'○',fg:i<s.stage?'#9A9DA6':i===s.stage?'#C6FF3D':'#5A5E69',bar:i<=s.stage?'#C6FF3D':'#2A2D35',weight:i===s.stage?800:500,pick:()=>this.setState({stage:i})}));
+    v.stageCopy = STAGE_COPY[s.stage]; v.stageEta = STAGE_ETA[s.stage]; v.stageDone = s.stage===6; v.stageLive = s.stage<6;
+    v.canCancel = s.stage<=1; v.noCancel = s.stage>1 && s.stage<6; v.showDriver = s.stage>=5;
+    v.cancelOrder = ()=>this.setState({stage:0});
+    // live orders
+    const orders = s.orders;
+    v.cols = ST.map((name,si)=>{ const os = orders.filter(o=>o.st===si); return {name:name.toUpperCase(), count:os.length, orders:os.map(o=>{ const left=o.promise-o.age, late=left<=3 && si<3; return {...o, totalTxt:$(o.total), chCol:CH_COL[o.ch], hasNote:!!o.note, late, ageTxt:`${o.age}m`, leftTxt: late?`${left}m LEFT`:`due ${left}m`, bd:late?'#FF3D8B':'#2A2D35', glow:late?'0 0 0 1px #FF3D8B, 0 0 24px rgba(255,61,139,.25)':'none', leftCol:late?'#FF3D8B':'#9A9DA6', action:ACT[si], isNew:si===0, act:()=>this.setState(st=>({orders: si===3 ? st.orders.filter(x=>x.id!==o.id) : st.orders.map(x=>x.id===o.id?{...x,st:x.st+1}:x)})), reject:()=>this.setState(st=>({orders:st.orders.filter(x=>x.id!==o.id)}))}; })}; });
+    v.activeCount = orders.filter(o=>o.st<3).length; v.lateCount = orders.filter(o=>o.promise-o.age<=3 && o.st<3).length;
+    v.resetOrders = ()=>this.setState({orders:ORDERS});
+    // menu mgmt
+    v.mgmtRows = ITEMS.slice(0,8).map(it=>{ const sold = s.sold.includes(it.id); return {...it, slot:'mgmt-'+it.id, priceTxt:$(it.price), heatBg:HEAT_COL[it.heat], status:sold?'SOLD OUT':'ACTIVE', stCol:sold?'#FF3D8B':'#C6FF3D', btn:sold?'Restore':'86 item', btnBg:sold?'transparent':'#FF3D8B', btnFg:sold?'#F2F2EE':'#0B0C0F', btnBd:sold?'#5A5E69':'#FF3D8B', chans:sold?'Hidden on Direct · DoorDash · Uber Eats':'Direct · DoorDash · Uber Eats', toggle:()=>this.setState(st=>({sold: sold?st.sold.filter(x=>x!==it.id):[...st.sold,it.id]}))}; });
+    v.soldCount = s.sold.length;
+    return v;
+  }
+}
+</script>
+</body>
+</html>

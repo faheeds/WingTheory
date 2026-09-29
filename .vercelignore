@@ -1,0 +1,8 @@
+.npm-cache
+.vercel-cli-temp
+.next
+.vercel
+node_modules
+design_handoff_wing_theory
+tsconfig.tsbuildinfo
+.env.local
