@@ -884,14 +884,20 @@ function CartPage() {
 function CheckoutPage() {
   const router = useRouter();
   const { cart, capacity, placeDemoOrder, rewardPoints } = useStore();
+  const stripeTest = process.env.NEXT_PUBLIC_CHECKOUT_MODE === "stripe_test";
   const [schedule, setSchedule] = useState(false);
   const [tip, setTip] = useState(0.18);
   const [reward, setReward] = useState(false);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const [apartment, setApartment] = useState("");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [instructions, setInstructions] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [payment, setPayment] = useState("Card");
+  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const {
     subtotal,
@@ -899,14 +905,40 @@ function CheckoutPage() {
     tip: tipAmount,
     total,
   } = checkoutTotals(cart, tip, reward);
-  const submit = (event: React.FormEvent) => {
+  const submit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!cart.length || capacity === "PAUSED") {
       setError("Ordering is currently unavailable.");
       return;
     }
-    if (!name.trim() || !address.trim() || !email.trim() || !phone.trim()) {
+    if (!name.trim() || !address.trim() || !email.trim() || !phone.trim() ||
+        (stripeTest && (!city.trim() || !postalCode.trim()))) {
       setError("Complete delivery and contact details first.");
+      return;
+    }
+    if (stripeTest) {
+      setSubmitting(true);
+      setError("");
+      try {
+        const response = await fetch("/api/checkout/session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            cart, name, email, phone, street: address, apartment,
+            city, state: "WA", postalCode, instructions,
+          }),
+        });
+        const result: { url?: string; error?: string } = await response.json();
+        if (!response.ok || !result.url) {
+          setError(result.error ?? "Checkout could not start. Please try again.");
+          return;
+        }
+        window.location.assign(result.url);
+      } catch {
+        setError("Checkout could not start. Please try again.");
+      } finally {
+        setSubmitting(false);
+      }
       return;
     }
     const id = placeDemoOrder(name, total, reward);
@@ -917,7 +949,9 @@ function CheckoutPage() {
       <p className="eyebrow">THE FINAL STEP</p>
       <h1>CHECKOUT.</h1>
       <p className="demo-notice">
-        Demo checkout. No payment is collected and no food is delivered.
+        {stripeTest
+          ? "Stripe test checkout only. No real charge is made and no food is delivered."
+          : "Demo checkout. No payment is collected and no food is delivered."}
       </p>
       <div className="checkout-layout">
         <div className="checkout-main">
@@ -935,14 +969,32 @@ function CheckoutPage() {
                 required
                 value={address}
                 onChange={(event) => setAddress(event.target.value)}
-                placeholder="Street address, city, ZIP"
+                placeholder={stripeTest ? "Street address" : "Street address, city, ZIP"}
               />
             </label>
+            {stripeTest ? (
+              <>
+                <label>
+                  Apartment or unit
+                  <input value={apartment} onChange={(event) => setApartment(event.target.value)} />
+                </label>
+                <div className="form-grid">
+                  <label>
+                    City
+                    <input required value={city} onChange={(event) => setCity(event.target.value)} />
+                  </label>
+                  <label>
+                    Washington ZIP
+                    <input required inputMode="numeric" value={postalCode} onChange={(event) => setPostalCode(event.target.value)} />
+                  </label>
+                </div>
+              </>
+            ) : null}
             <label>
               Drop-off instructions
-              <textarea placeholder="Gate code, building, or delivery notes" />
+              <textarea value={instructions} onChange={(event) => setInstructions(event.target.value)} placeholder="Gate code, building, or delivery notes" />
             </label>
-            <div className="choice-row">
+            {!stripeTest ? <div className="choice-row">
               <button
                 type="button"
                 className={`choice ${!schedule ? "selected" : ""}`}
@@ -957,8 +1009,8 @@ function CheckoutPage() {
               >
                 Schedule <small>Pick a time today or later</small>
               </button>
-            </div>
-            {schedule ? (
+            </div> : null}
+            {!stripeTest && schedule ? (
               <label>
                 Delivery time
                 <input type="datetime-local" required />
@@ -1005,7 +1057,7 @@ function CheckoutPage() {
             <h2>
               <span>03</span> PAYMENT
             </h2>
-            <div className="choice-row payment-row">
+            {!stripeTest ? <div className="choice-row payment-row">
               {["Card", "Apple Pay", "Google Pay", "PayPal", "Gift card"].map(
                 (value) => (
                   <button
@@ -1018,11 +1070,11 @@ function CheckoutPage() {
                   </button>
                 ),
               )}
-            </div>
+            </div> : null}
             <p className="help-text">
-              Payment methods require a live payment connection. This demo
-              creates an unpaid sample order only. Never enter card details
-              here.
+              {stripeTest
+                ? "You will choose a test payment method on Stripe. Do not use a real card."
+                : "Payment methods require a live payment connection. This demo creates an unpaid sample order only. Never enter card details here."}
             </p>
           </section>
         </div>
@@ -1045,12 +1097,12 @@ function CheckoutPage() {
                 </Link>
               ))}
           </div>
-          <label>
+          {!stripeTest ? <label>
             Promo code
             <input placeholder="Enter code" />
-          </label>
-          <h3>TIP YOUR DRIVER</h3>
-          <div className="choice-row tip-row">
+          </label> : null}
+          {!stripeTest ? <h3>TIP YOUR DRIVER</h3> : null}
+          {!stripeTest ? <div className="choice-row tip-row">
             {[0, 0.15, 0.18, 0.2].map((value) => (
               <button
                 type="button"
@@ -1061,8 +1113,8 @@ function CheckoutPage() {
                 {value ? `${Math.round(value * 100)}%` : "None"}
               </button>
             ))}
-          </div>
-          <label className="reward-toggle">
+          </div> : null}
+          {!stripeTest ? <label className="reward-toggle">
             <input
               type="checkbox"
               checked={reward}
@@ -1070,33 +1122,34 @@ function CheckoutPage() {
               onChange={(event) => setReward(event.target.checked)}
             />{" "}
             Use 500 pts for $5 off
-          </label>
+          </label> : null}
           <div className="summary-line">
             <span>Subtotal</span>
             <span>{money(subtotal)}</span>
           </div>
-          <div className="summary-line">
+          {!stripeTest ? <div className="summary-line">
             <span>Delivery fee</span>
             <span>$2.99</span>
-          </div>
-          <div className="summary-line">
+          </div> : null}
+          {!stripeTest ? <div className="summary-line">
             <span>Estimated tax</span>
             <span>{money(tax)}</span>
-          </div>
-          <div className="summary-line">
+          </div> : null}
+          {!stripeTest ? <div className="summary-line">
             <span>Tip</span>
             <span>{money(tipAmount)}</span>
-          </div>
+          </div> : null}
           {reward ? (
             <div className="summary-line volt-text">
               <span>Theory Club reward</span>
               <span>−$5.00</span>
             </div>
           ) : null}
-          <div className="summary-total">
+          {stripeTest ? <p className="help-text">Delivery and tax are calculated before you confirm payment on Stripe.</p> : null}
+          {!stripeTest ? <div className="summary-total">
             <span>TOTAL</span>
             <strong>{money(total)}</strong>
-          </div>
+          </div> : null}
           {error ? (
             <p className="error-text" role="alert">
               {error}
@@ -1104,9 +1157,9 @@ function CheckoutPage() {
           ) : null}
           <button
             className="button primary full"
-            disabled={!cart.length || capacity === "PAUSED"}
+            disabled={!cart.length || capacity === "PAUSED" || submitting}
           >
-            CREATE DEMO ORDER · {money(total)}
+            {stripeTest ? (submitting ? "CHECKING DELIVERY…" : "CONTINUE TO STRIPE TEST CHECKOUT") : `CREATE DEMO ORDER · ${money(total)}`}
           </button>
         </aside>
       </div>
